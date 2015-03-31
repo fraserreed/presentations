@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <title>Introduction to Unit Testing with PHPUnit</title>
+
+    <meta name="description" content="Getting started with PHPUnit">
+    <meta name="author" content="Fraser Reed">
+
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+<div class="reveal">
+
+    <!-- Any section element inside of this container is displayed as a slide -->
+    <div class="slides">
+        <section>
+            <h2>Introduction to Unit Testing</h2>
+
+            <h3>with PHPUnit</h3>
+
+            <p>
+                <small>Fraser Reed / <a href="https://twitter.com/fraser_reed" target="_blank">@fraser_reed</a></small>
+            </p>
+            <img src="img/php-elephant.png" style="border: none; box-shadow: none; background: none;"/>
+        </section>
+
+        <section data-background="../common/img/pingpong.jpg">
+            <h2>About Me: Fraser Reed</h2>
+
+            <div style="height: 30px;">
+                Server Side Engineer<span style="padding-left: 25px;"> - </span>
+                <a href="http://workshopx.com">
+                    <img src="img/workshopx-logo.png" style="margin: 0; padding: 10px 30px 0; border: none; box-shadow: none; background: none;"/>
+                </a>
+            </div>
+            <br/>
+            <table>
+                <tr>
+                    <td style="border: none;text-align: center;">databases</td>
+                    <td style="border: none;text-align: center;">scaling</td>
+                </tr>
+                <tr>
+                    <td style="border: none;text-align: center;">testing</td>
+                    <td style="border: none;text-align: center;">automating</td>
+                </tr>
+            </table>
+            <br/>
+            <br/>
+
+            <p>
+                <a href="http://www.canvaspop.com" style="margin: 0 15px;">
+                    <img src="img/cp-logo.png" style="border: none; box-shadow: none; background: none;">
+                </a>
+                <a href="http://www.dna11.com" style="margin: 0 15px;">
+                    <img src="img/dna-logo.png" style="border: none; box-shadow: none; background: none;">
+                </a>
+                <a href="http://www.crated.com" style="margin: 0 15px;">
+                    <img src="img/crated-logo.png" style="border: none; box-shadow: none; background: none;">
+                </a>
+                <a href="http://popkey.co" style="left: 15px; top: 15px;">
+                    <img src="img/popkey-logo.png" style="border: none; box-shadow: none; background: none;">
+                </a>
+            </p>
+            <aside class="notes">
+                <ul>
+                    <li>fraser reed</li>
+                    <li>server side engineer</li>
+                </ul>
+            </aside>
+
+        </section>
+
+        <section>
+            <h2>Topics</h2>
+
+            <table>
+                <tr>
+                    <td>
+                        What is unit testing?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Why should I test my code?
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Background on PHPUnit
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Installation
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        The basics
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Simple example
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Working with resources
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Questions?
+                    </td>
+                </tr>
+            </table>
+        </section>
+
+        <section>
+            <section>
+                <h2>What is Unit Testing?</h2>
+            </section>
+            <section>
+                <h2>What is Unit Testing?</h2>
+
+                <p style="margin: 0 auto; max-width: 700px;">Testing individual units of code to determine if they are fit to use.</p>
+
+                <p class="fragment">The smallest testable part of an application:<br/>functions, classes and methods</p>
+
+                <p class="fragment">Prove that code performs within a set of guidelines</p>
+
+                <p class="fragment">Unit testing is a fundamental building block of writing professional, maintainable code</p>
+            </section>
+        </section>
+
+        <section>
+            <section>
+                <h2>Why should I test my code?</h2>
+            </section>
+
+            <section>
+                <img src="img/dilbert-1.gif"/>
+            </section>
+
+            <section>
+                <h2>Why should I test my code?</h2>
+
+                <p>Confidence in your code</p>
+
+                <p class="fragment">Prevent breaking changes</p>
+
+                <p class="fragment">Speeds up future development</p>
+
+                <p class="fragment">Helps write clean code</p>
+            </section>
+        </section>
+
+        <section>
+            <h2>Background on PHPUnit</h2>
+
+            <p>Written by Sebastian Bergmann</p>
+
+            <p><a href="https://phpunit.de/" target="_blank">https://phpunit.de/</a></p>
+
+            <div style="height: 50px;">
+                <img src="img/github.png" style="margin: 0; height: 30px; border: none; box-shadow: none; background: none;"/> <a href="https://github.com/sebastianbergmann/phpunit" target="_blank" style="padding-bottom: 10px;">https://github.com/sebastianbergmann/phpunit</a>
+            </div>
+
+            <div style="height: 45px; margin: 15px;">
+                Current stable version: 4.5.1
+            </div>
+
+            <div style="height: 30px; margin-top: 25px;">
+                Many optional packages:
+            </div>
+            <div style="height: 25px; margin: 15px;">
+                code coverage, lines of code, dbunit, selenium, etc.
+            </div>
+        </section>
+
+        <section>
+            <section>
+                <h2>Installation</h2>
+            </section>
+            <section>
+                <h2>Installation via PHAR</h2>
+            <pre><code>
+                wget https://phar.phpunit.de/phpunit.phar
+                php phpunit.phar
+            </code></pre>
+            </section>
+            <section>
+                <h2>Installation via Composer</h2>
+            <pre><code>
+                {
+                "require-dev": {
+                "phpunit/phpunit": "4.5.*"
+                }
+                }
+            </code></pre>
+            </section>
+        </section>
+
+        <section>
+            <h2>The basics</h2>
+        </section>
+
+        <section>
+            <h2>Simple example</h2>
+        </section>
+
+        <section>
+            <h2>Working with resources</h2>
+        </section>
+
+        <section>
+            <h2>Questions?</h2>
+        </section>
+
+
+    </div>
+
+</div>
+
+<script src="lib/js/head.min.js"></script>
+<script src="js/reveal.js"></script>
+
+<script>
+
+    // Full list of configuration options available at:
+    // https://github.com/hakimel/reveal.js#configuration
+    Reveal.initialize( {
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+            {
+                src: 'lib/js/classList.js', condition: function () {
+                return !document.body.classList;
+            }
+            },
+            {
+                src: 'plugin/markdown/marked.js', condition: function () {
+                return !!document.querySelector( '[data-markdown]' );
+            }
+            },
+            {
+                src: 'plugin/markdown/markdown.js', condition: function () {
+                return !!document.querySelector( '[data-markdown]' );
+            }
+            },
+            {
+                src: 'plugin/highlight/highlight.js', async: true, condition: function () {
+                return !!document.querySelector( 'pre code' );
+            }, callback: function () {
+                hljs.initHighlightingOnLoad();
+            }
+            },
+            {src: 'plugin/zoom-js/zoom.js', async: true},
+            {src: 'plugin/notes/notes.js', async: true}
+        ]
+    } );
+
+</script>
+
+</body>
+</html>
