@@ -226,11 +226,89 @@
                 }
                 }
             </code></pre>
+
+                <aside class="notes">
+                    <ul>
+                        <li>check version requirements: phpunit 4.5 requires php 5.3.3</li>
+                    </ul>
+                </aside>
+
             </section>
         </section>
 
         <section>
-            <h2>The basics</h2>
+            <section>
+                <h2>The basics</h2>
+            </section>
+            <section>
+                <p>The tests for a class Class go into a class ClassTest.</p>
+
+                <img src="img/basics-test-layout.png">
+            </section>
+            <section>
+                <p>ClassTest inherits (most of the time) from PHPUnit_Framework_TestCase.</p>
+
+                <img src="img/basics-extends.png">
+
+                <br/>
+                <br/>
+                <small>Alternatively, you can extend PHPUnit_Framework_TestCase to override<br/> or customize basic functionality.</small>
+            </section>
+            <section>
+                <p>The tests are public methods that are named test*.</p>
+
+                <img src="img/basics-name-1.png">
+                <br/>
+                <img src="img/basics-name-2.png">
+
+            </section>
+            <section>
+                <p>Inside the test methods, assertion methods are used to assert that an actual value matches an expected value.</p>
+
+                <img src="img/basics-assertions.png">
+            </section>
+        </section>
+        <section>
+            <section>
+                <h2>Running the tests</h2>
+            </section>
+            <section>
+                <p>Direct execution</p>
+                <img src="img/running-basic.png"/>
+                <p class="fragment">
+                    <img src="img/basics-test-layout.png">
+                </p>
+            </section>
+            <section>
+                <p>Execution via phpunit.xml</p>
+                <img src="img/running-phpunit-file.png"/>
+                <p class="fragment">
+                    <img src="img/running-phpunit-location.png"/>
+                </p>
+            </section>
+            <section>
+                <p>Execution via phpunit.xml</p>
+                <img src="img/running-phpunit-output.png"/>
+                <p class="fragment">
+                    vs.<br/>
+                    <img src="img/running-basic.png"/>
+                </p>
+            </section>
+            <section>
+                <p>Execution via phpunit.xml with code coverage</p>
+                <img src="img/running-phpunit-coverage-file.png"/>
+            </section>
+            <section>
+                <p>Execution via phpunit.xml with code coverage</p>
+                <img src="img/running-phpunit-coverage-output.png"/>
+            </section>
+            <section>
+                <p>Execution via phpunit.xml with code coverage</p>
+                <img src="img/running-phpunit-coverage.png"/>
+                <br/>
+                <img src="img/running-phpunit-coverage-details.png"/>
+            </section>
+
         </section>
 
         <section>
